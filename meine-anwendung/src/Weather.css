@@ -2,7 +2,7 @@
 @import "~typeface-poppins";
 
 .Weather {
-  border: 2px solid grey;
+  border: 2px solid rgb(192, 187, 187);
   border-radius: 6px;
   margin: 200px auto auto;
   font-family: Noto Sans, "sans-serif";
@@ -53,7 +53,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 10px;
-  border: 1px solid grey;
+  border: 1px solid rgb(221, 217, 217);
   margin: 60px 0 0 0;
   padding: 40px 20px;
   max-width: 650px;
