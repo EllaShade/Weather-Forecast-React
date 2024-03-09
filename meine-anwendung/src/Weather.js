@@ -6,7 +6,7 @@ export default function Weather() {
   return (
     <div className="Weather">
       <form>
-        <div className="row">
+        <div className="row search-inputs">
           <div className="col-9">
             <input
               type="search"
@@ -19,28 +19,39 @@ export default function Weather() {
           </div>
         </div>
       </form>
-      <h1>Bern</h1>
-      <ul>
-        <li>Timezone</li>
-        <li>Friday, 20:00</li>
-        <li>Mostly Cloudy</li>
-      </ul>
-      <div className="row">
-        <div className="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="Mostly Cloudy"
-          />
-          7°C
-        </div>
-        <div className="col-6">
+      <main>
+        <h1>Bern</h1>
+        <div className="weather-info-1">
           <ul>
-            <li>Precipitation: 15%</li>
-            <li>Humidity: 72%</li>
-            <li>Wind: 13km/h</li>
+            <li>Timezone</li>
+            <li>Friday, 20:00</li>
+            <li>Mostly Cloudy</li>
           </ul>
         </div>
-      </div>
+        <div className="row grid-2-columns">
+          <div className="col-6 icon-current-weather">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="Mostly Cloudy"
+            />
+            <span className="temperature"> 7</span>
+            <span className="unit">°C</span>
+          </div>
+          <div className="col-6 weather-info-2">
+            <ul>
+              <li>
+                Precipitation:<span className="weather-number">15%</span>
+              </li>
+              <li>
+                Humidity: <span className="weather-number">72%</span>
+              </li>
+              <li>
+                Wind: <span className="weather-number">13km/h</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

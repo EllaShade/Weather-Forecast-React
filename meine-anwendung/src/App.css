@@ -1,1 +1,9 @@
+.App footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
 
+.App footer a {
+  text-decoration: none;
+}
