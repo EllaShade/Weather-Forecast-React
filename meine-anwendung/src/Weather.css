@@ -55,35 +55,38 @@
   grid-gap: 10px;
   border: 1px solid rgb(221, 217, 217);
   margin: 60px 0 0 0;
-  padding: 40px 0;
-  max-width: 450px;
+  padding: 30px;
+  max-width: 500px;
 }
-.Weather .icon-current-weather {
+.Weather .current-weather {
   display: flex;
   align-items: center;
-  margin: 0 10px;
 }
 
 .Weather .icon-current-weather canvas {
-  width: 100px;
-  height: auto;
-  margin-left: 15px;
-  margin-right: 12px;
+  margin-right: 10px;
 }
 
+.Weather .WeatherTemperature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .Weather .temperature {
-  font-size: 40px;
-  margin-top: 0;
-  line-height: 33px;
+  font-size: 50px;
 }
 
 .Weather .unit {
+  white-space: nowrap;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 550;
   position: relative;
-  top: -7px;
-  margin-left: 3px;
+  top: -24px;
 }
+.Weather .unit a {
+  text-decoration: none;
+}
+
 .Weather .weather-info-2 {
   margin: 0 10px;
   padding-left: 10px;
