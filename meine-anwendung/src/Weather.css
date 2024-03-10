@@ -64,9 +64,11 @@
   margin: 0 10px;
 }
 
-.Weather .icon-current-weather img {
-  width: 160px;
+.Weather .icon-current-weather canvas {
+  width: 100px;
   height: auto;
+  margin-left: 15px;
+  margin-right: 12px;
 }
 
 .Weather .temperature {
