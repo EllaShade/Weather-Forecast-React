@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 
 const codeMapping = {
-  "clear-sky-day": "CLEAR_DAY",
-  "clear-sky-night": "CLEAR_NIGHT",
-  "few-clouds-day": "PARTLY_CLOUDY_DAY",
-  "few-clouds-night": "PARTLY_CLOUDY_NIGHT",
-  "scattered-clouds-day": "PARTLY_CLOUDY_DAY",
-  "scattered-clouds-night": "PARTLY_CLOUDY_NIGHT",
-  "broken-clouds-day": "CLOUDY",
-  "broken-clouds-night": "CLOUDY",
-  "shower-rain-day": "RAIN",
-  "shower-rain-night": "RAIN",
-  "rain-day": "RAIN",
-  "rain-night": "RAIN",
-  "thunderstorm-day": "RAIN",
-  "thunderstorm-night": "RAIN",
-  "snow-day": "SNOW",
-  "snow-night": "SNOW",
-  "mist-day": "FOG",
-  "mist-night": "FOG",
+  "01d": "CLEAR_DAY",
+  "01n": "CLEAR_NIGHT",
+  "02d": "PARTLY_CLOUDY_DAY",
+  "02n": "PARTLY_CLOUDY_NIGHT",
+  "03d": "PARTLY_CLOUDY_DAY",
+  "03n": "PARTLY_CLOUDY_NIGHT",
+  "04d": "CLOUDY",
+  "04n": "CLOUDY",
+  "09d": "RAIN",
+  "09n": "RAIN",
+  "10d": "RAIN",
+  "10n": "RAIN",
+  "11d": "RAIN",
+  "11n": "RAIN",
+  "13d": "SNOW",
+  "13n": "SNOW",
+  "50d": "FOG",
+  "50n": "FOG",
 };
 
 const WeatherBackground = ({ currentWeatherIcon }) => {
@@ -30,24 +30,40 @@ const WeatherBackground = ({ currentWeatherIcon }) => {
       const imageName = codeMapping[currentWeatherIcon];
 
       if (imageName) {
-        const imagePath = `${process.env.PUBLIC_URL}/images/${imageName}.jpg`;
+        const imagePath = `/images/${imageName}.jpg`;
         console.log("Image path:", imagePath);
         setBackgroundImage(`url(${imagePath})`);
       }
     };
 
     updateBackgroundImage();
-  }, [currentWeatherIcon]); // Der Effekt wird aktualisiert, wenn sich das currentWeatherIcon ändert.
+  }, [currentWeatherIcon]);
 
-  return (
-    <div
-      className="weather-background"
-      style={{
-        backgroundImage: backgroundImage,
-        // Weitere Stilattribute für deine Hintergrundkomponente hier hinzufügen.
-      }}
-    />
-  );
+  useEffect(() => {
+    document.body.style.backgroundImage = backgroundImage;
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundSize = "contain";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.position = "fixed";
+    document.body.style.top = 0;
+    document.body.style.left = 0;
+    document.body.style.width = "100%";
+    document.body.style.height = "100%";
+
+    return () => {
+      document.body.style.backgroundImage = "";
+      document.body.style.backgroundPosition = "";
+      document.body.style.backgroundSize = "";
+      document.body.style.backgroundRepeat = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+    };
+  }, [backgroundImage]);
+
+  return null;
 };
 
 export default WeatherBackground;

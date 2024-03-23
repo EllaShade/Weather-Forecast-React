@@ -1,7 +1,6 @@
 .WeatherForecast {
   text-align: center;
   border: none;
-  background: rgba(255, 255, 255, 0.3);
   border-radius: 0;
 }
 
@@ -12,13 +11,43 @@
 }
 
 .WeatherForecast .col:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.589);
 }
 
 .WeatherForecast-day {
   margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 20px;
 }
 .WeatherForecastTemperatureMin {
   opacity: 0.8;
   margin-left: 5px;
+  font-size: 18px;
+  color: #363132;
+  font-weight: 500;
+}
+
+.WeatherForecastTemperatureMax {
+  font-size: 18px;
+  color: #363132;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+  .WeatherForecast .col {
+    margin: 15px 15px;
+    padding: 30px 15px;
+  }
+
+  .WeatherForecast-day {
+    font-size: 18px;
+  }
+
+  .WeatherForecastTemperatureMin {
+    font-size: 16px;
+  }
+
+  .WeatherForecastTemperatureMax {
+    font-size: 16px;
+  }
 }
