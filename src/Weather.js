@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherBackground from "./WeatherBackground";
 import WeatherForecast from "./WeatherForecast";
-
 import WeatherInfo from "./WeatherInfo.js";
 
 import "./Weather.css";
@@ -12,8 +11,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response.data);
-
     function getFormattedTimezone(offsetSeconds) {
       const hours = offsetSeconds / 3600;
       const sign = hours > 0 ? "+" : "-";
