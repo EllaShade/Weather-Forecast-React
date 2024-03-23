@@ -9,7 +9,7 @@ export default function WeatherInfo(props) {
       <h1>{props.data.city}</h1>
       <div className="weather-info-1">
         <ul>
-          <li>Timezone</li>
+          <li>Timezone: {props.data.timezone}</li>
           <li>
             <FormateDate date={props.data.date} />
           </li>
@@ -19,7 +19,7 @@ export default function WeatherInfo(props) {
       <div className="row grid-2-columns">
         <div className="col-6 current-weather ">
           <div className="icon-current-weather">
-            <WeatherIcon code={props.data.icon} size={52} />
+            <WeatherIcon code={props.data.icon} size={60} />
           </div>
           <WeatherTemperature celsius={props.data.temperature} />
         </div>

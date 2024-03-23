@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherBackground from "./WeatherBackground";
+import WeatherForecast from "./WeatherForecast";
 
 import WeatherInfo from "./WeatherInfo.js";
 
@@ -12,22 +13,39 @@ export default function Weather(props) {
 
   function handleResponse(response) {
     console.log(response.data);
-    console.log(response.data.condition.icon);
+
+    function getFormattedTimezone(offsetSeconds) {
+      const hours = offsetSeconds / 3600;
+      const sign = hours > 0 ? "+" : "-";
+      const absHours = Math.abs(hours);
+      const tzHours = String(Math.floor(absHours)).padStart(2, "0");
+      const tzMinutes = String(Math.floor((absHours % 1) * 60)).padStart(
+        2,
+        "0"
+      );
+      return `GMT${sign}${tzHours}:${tzMinutes}`;
+    }
+
+    const timezoneOffset = response.data.timezone;
+    const formattedTimezone = getFormattedTimezone(timezoneOffset);
+
     setWeatherData({
       ready: true,
-      temperature: response.data.temperature.current,
-      humidity: response.data.temperature.humidity,
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
-      icon: response.data.condition.icon,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date((response.data.dt + response.data.timezone) * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
-      city: response.data.city,
+      city: response.data.name,
+      timezone: formattedTimezone,
     });
   }
 
   function search() {
-    const apiKey = "05cd0a2o385623d1bd0t06fa44dfb1d2";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    const apiKey = "6643c7326a4c2a38838264a28531d97e";
+    let apiUrl = ` https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -60,6 +78,7 @@ export default function Weather(props) {
         </form>
         <WeatherBackground currentWeatherIcon={weatherData.icon} />
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

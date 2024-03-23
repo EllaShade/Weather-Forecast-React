@@ -74,36 +74,30 @@ input.form-control {
 
 .Weather h1 {
   margin: 40px auto auto 82px;
-  font-size: 60px;
-  font-weight: 600;
-
-  color: black; /* Farbe des Textes */
-  text-shadow: -3px -3px 0 rgba(255, 255, 255, 0.7),
-    /* oben links */ 3px -3px 0 rgba(255, 255, 255, 0.5),
-    /* oben rechts */ 3px 3px 0 rgba(255, 255, 255, 0.3),
-    /* unten rechts */ -3px 3px 0 rgba(255, 255, 255, 0.1),
-    /* unten links */ -3px 0 0 rgba(255, +255, +255, +0.7),
-    /* links */ +3px +0 +0 rgba(255, +255, +255, +0.5),
-    /* rechts */ +0 -3px +0 rgba(255, +255, +255, +0.3),
-    /* oben */ +0 +3px +0 rgba(255, +255, +255, +0.1); /* unten */
+  font-size: 75px;
+  font-weight: 500;
+  color: rgba(231, 223, 223, 0.781);
 }
 
 .Weather .weather-info-1 {
   margin: 40px 0 0 70px;
+  font-size: 22px;
 }
 
 .Weather .weather-info-1 ul {
   list-style-type: square;
+  color: rgba(231, 223, 223, 0.836);
 }
 
 .Weather .grid-2-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
-  border: 1px solid rgb(221, 217, 217);
+  border: none;
   margin: 60px 0 0 0;
   padding: 30px;
   max-width: 500px;
+  background: rgba(255, 255, 255, 0.3);
 }
 .Weather .current-weather {
   display: flex;
@@ -137,6 +131,7 @@ input.form-control {
 .Weather .weather-info-2 {
   margin: 0 10px;
   padding-left: 10px;
+  font-size: 18px;
 }
 
 .Weather .weather-info-2 ul {

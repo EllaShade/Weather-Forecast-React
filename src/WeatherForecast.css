@@ -1,0 +1,24 @@
+.WeatherForecast {
+  text-align: center;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+}
+
+.WeatherForecast .col {
+  margin: 25px 25px;
+  padding: 40px 20px;
+  border-radius: 3px;
+}
+
+.WeatherForecast .col:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.WeatherForecastDay {
+  margin-bottom: 10px;
+}
+.WeatherForecastTemperatureMin {
+  opacity: 0.8;
+  margin-left: 5px;
+}
