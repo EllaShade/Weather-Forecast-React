@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Weather from "./Weather.js";
+import WeatherBackground from "./WeatherBackground.js";
+import imagePath from "./WeatherBackground.js";
 
 import "./App.css";
 
 export default function App() {
+  const [currentWeatherIcon, setCurrentWeatherIcon] = useState(null);
+
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(${imagePath})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      <WeatherBackground currentWeatherIcon={currentWeatherIcon} />
       <div className="container">
-        <Weather defaultCity="Zurich" />
+        <Weather
+          defaultCity="Zurich"
+          setCurrentWeatherIcon={setCurrentWeatherIcon}
+        />
       </div>
       <footer>
         <p>

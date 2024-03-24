@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const codeMapping = {
   "01d": "CLEAR_DAY",
@@ -30,7 +30,7 @@ const WeatherBackground = ({ currentWeatherIcon }) => {
       const imageName = codeMapping[currentWeatherIcon];
 
       if (imageName) {
-        const imagePath = `/images/${imageName}.jpg`;
+        const imagePath = `./images/${imageName}.jpg`;
         console.log("Image path:", imagePath);
         setBackgroundImage(`url(${imagePath})`);
       }
@@ -40,6 +40,7 @@ const WeatherBackground = ({ currentWeatherIcon }) => {
   }, [currentWeatherIcon]);
 
   useEffect(() => {
+    console.log(backgroundImage);
     document.body.style.backgroundImage = backgroundImage;
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundSize = "contain";
@@ -49,8 +50,10 @@ const WeatherBackground = ({ currentWeatherIcon }) => {
     document.body.style.left = 0;
     document.body.style.width = "100%";
     document.body.style.height = "100%";
+    console.log(backgroundImage);
 
     return () => {
+      console.log(backgroundImage);
       document.body.style.backgroundImage = "";
       document.body.style.backgroundPosition = "";
       document.body.style.backgroundSize = "";
@@ -60,10 +63,9 @@ const WeatherBackground = ({ currentWeatherIcon }) => {
       document.body.style.left = "";
       document.body.style.width = "";
       document.body.style.height = "";
+      console.log(backgroundImage);
     };
   }, [backgroundImage]);
-
-  return null;
 };
 
 export default WeatherBackground;
