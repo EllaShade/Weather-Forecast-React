@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherBackground from "./WeatherBackground";
 import WeatherForecast from "./WeatherForecast";
 import WeatherInfo from "./WeatherInfo.js";
 
@@ -38,6 +37,8 @@ export default function Weather(props) {
       city: response.data.name,
       timezone: formattedTimezone,
     });
+
+    props.setCurrentWeatherIcon(response.data.weather[0].icon);
   }
 
   function search() {
@@ -58,7 +59,6 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather weather-background">
-        <WeatherBackground currentWeatherIcon={weatherData.icon} />
         <form onSubmit={handleSubmit}>
           <div className="row search-inputs">
             <div className="col-9">
